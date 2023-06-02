@@ -21,3 +21,10 @@ variable "region" {
     default = "eu-west-2"
   
 }
+
+variable "scope_id" {
+  
+}
+variable "cred_id" {
+  
+}
