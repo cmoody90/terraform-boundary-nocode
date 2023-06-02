@@ -1,9 +1,4 @@
-variable "org" {
-  
-}
-variable "workspaces" {
-  
-}
+
 
 variable "access_key" {}
 

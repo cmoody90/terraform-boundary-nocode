@@ -1,12 +1,3 @@
-terraform {
-  cloud {
-    organization = var.org
-
-    workspaces {
-      name = var.workspaces
-    }
-  }
-}
 
 #Deploy AWS Target
 provider "aws" {
