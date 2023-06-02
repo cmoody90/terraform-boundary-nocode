@@ -1,30 +1,30 @@
 
-
-variable "access_key" {}
-
-variable "secret_key" {}
-
 variable "vm_name" {}
+# variable "access_key" {}
 
-variable "url" {
-  
-}
+# variable "secret_key" {}
 
-variable "username" {
-  
-}
 
-variable "password" {
-  
-}
-variable "region" {
-    default = "eu-west-2"
-  
-}
 
-variable "scope_id" {
+# variable "url" {
   
-}
-variable "cred_id" {
+# }
+
+# variable "username" {
   
-}
+# }
+
+# variable "password" {
+  
+# }
+# variable "region" {
+#     default = "eu-west-2"
+  
+# }
+
+# variable "scope_id" {
+  
+# }
+# variable "cred_id" {
+  
+# }
