@@ -9,7 +9,7 @@ provider "aws" {
 resource "aws_instance" "ssh-target" {
   ami                  = "ami-0e1c5be2aa956338b"
   instance_type        = "t2.micro"
-  key_name = "boundary-ssh-key"
+  key_name = "boundary-vault-keypair"
   security_groups = ["SSH"]
   tags = {
     Name = var.vm_name
