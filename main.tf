@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "ssh-target" {
-  ami                  = "ami-0e1c5be2aa956338b"
+  ami                  = "ami-0688ba7eeeeefe3cd"
   instance_type        = "t2.micro"
   key_name = "boundary-vault-keypair"
   security_groups = ["SSH"]
