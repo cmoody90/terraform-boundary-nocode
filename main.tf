@@ -19,8 +19,8 @@ resource "aws_instance" "ssh-target" {
 #Configure and add target to Boundary
 provider "boundary" {
   addr                            = var.url
-  password_auth_method_login_name = var.username          # changeme
-  password_auth_method_password   = var.password       # changeme
+  auth_method_login_name = var.username          # changeme
+  auth_method_password   = var.password       # changeme
 }
 
 #Boundary Config
