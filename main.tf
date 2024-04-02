@@ -31,5 +31,8 @@ resource "boundary_target" "target" {
   default_port         = "22"
   scope_id             = var.scope_id
   address              = aws_instance.ssh-target.public_ip
+  injected_application_credential_source_ids = [
+    var.cred_id
+  ]
 }
 
