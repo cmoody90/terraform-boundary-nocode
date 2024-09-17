@@ -39,7 +39,7 @@ resource "boundary_host_static" "ssh_host" {
   name            = "ssh-host"
   description     = "SSH Host for EC2 instance"
   address         = aws_instance.ssh-target.public_ip
-  host_catalog_id = "hcst_94IxZYoE6B"
+  host_catalog_id = "hcst_94IxZYoE6B"  # Your Host Catalog ID
 }
 
 # Create a Static Host Set
@@ -47,7 +47,7 @@ resource "boundary_host_set_static" "ssh_host_set" {
   type            = "static"
   name            = "ssh-host-set"
   description     = "Host Set for SSH Hosts"
-  host_catalog_id = "hcst_94IxZYoE6B"
+  host_catalog_id = "hcst_94IxZYoE6B"  # Same Host Catalog ID
 
   host_ids = [
     boundary_host_static.ssh_host.id
@@ -61,7 +61,7 @@ resource "boundary_target" "target" {
   type                                      = "ssh"
   default_port                              = "22"
   scope_id                                  = var.scope_id
-  host_set_ids                              = [boundary_host_set_static.ssh_host_set.id]
+  host_source_ids                           = [boundary_host_set_static.ssh_host_set.id]
   injected_application_credential_source_ids = [
     var.cred_id
   ]
