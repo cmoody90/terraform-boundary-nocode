@@ -61,7 +61,7 @@ resource "boundary_target" "target" {
   type                                      = "ssh"
   default_port                              = "22"
   scope_id                                  = var.scope_id
-  host_set_id                               = [boundary_host_set.ssh_host_set.id]
+  host_set_id                               = boundary_host_set.ssh_host_set.id
   injected_application_credential_source_ids = [
     var.cred_id
   ]
