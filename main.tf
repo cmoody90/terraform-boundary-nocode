@@ -11,7 +11,7 @@ resource "aws_instance" "ssh-target" {
   instance_type        = "t2.micro"
   key_name             = "boundary-vault-keypair"
   security_groups      = ["SSH"]
-subnet_id              = "subnet-0aea8366156988c03"  # Replace with your Subnet ID
+  subnet_id            = "subnet-0aea8366156988c03"  # Replace with your Subnet ID
   tags = {
     Name = var.vm_name
   }
