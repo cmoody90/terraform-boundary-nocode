@@ -24,16 +24,38 @@ provider "boundary" {
   auth_method_password   = var.password       # changeme
 }
 
-#Boundary Config
+# Define a Host
+resource "boundary_host" "ssh_host" {
+  type            = "static"
+  name            = "ssh-host"
+  description     = "SSH Host for EC2 instance"
+  address         = aws_instance.ssh-target.public_ip
+  host_catalog_id = "hcst_94IxZYoE6B"  # Replace with your Host Catalog ID
+}
+
+# Create a Host Set
+resource "boundary_host_set" "ssh_host_set" {
+  type            = "static"
+  name            = "ssh-host-set"
+  description     = "Host Set for SSH Hosts"
+  host_catalog_id = "hcst_94IxZYoE6B"  # Same Host Catalog ID
+
+  host_ids = [
+    boundary_host.ssh_host.id
+  ]
+}
+
+# Configure and Add Target to Boundary
 resource "boundary_target" "target" {
-  name                 = var.vm_name
-  description          = "Target created by Terraform"
-  type                 = "ssh"
-  default_port         = "22"
-  scope_id             = var.scope_id
-  address              = aws_instance.ssh-target.public_ip
+  name                                      = var.vm_name
+  description                               = "Target created by Terraform"
+  type                                      = "ssh"
+  default_port                              = "22"
+  scope_id                                  = var.scope_id
+  host_set_ids                              = [boundary_host_set.ssh_host_set.id]
   injected_application_credential_source_ids = [
     var.cred_id
   ]
 }
+
 
