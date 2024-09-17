@@ -40,6 +40,9 @@ resource "boundary_host_static" "ssh_host" {
   description     = "SSH Host for EC2 instance"
   address         = aws_instance.ssh-target.public_ip
   host_catalog_id = "hcst_94IxZYoE6B"  # Your Host Catalog ID
+
+  depends_on = [aws_instance.ssh-target]  # Ensures the EC2 instance is created first
+
 }
 
 # Create a Static Host Set
