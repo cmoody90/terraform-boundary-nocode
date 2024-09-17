@@ -10,7 +10,7 @@ resource "aws_instance" "ssh-target" {
   ami                  = "ami-05134c8ef96964280"
   instance_type        = "t2.micro"
   key_name             = "boundary-vault-keypair"
-  security_groups      = ["SSH"]
+  vpc_security_group_ids = ["sg-0d3f1e99f596b7655"]
   tags = {
     Name = var.vm_name
   }
