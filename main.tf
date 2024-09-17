@@ -1,4 +1,13 @@
 
+terraform {
+  required_providers {
+    boundary = {
+      source  = "hashicorp/boundary"
+      version = ">= 0.4.0"
+    }
+  }
+}
+
 #Deploy AWS Target
 provider "aws" {
     access_key = var.access_key
