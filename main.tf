@@ -21,6 +21,8 @@ resource "aws_instance" "ssh-target" {
   key_name               = "boundary-vault-keypair"
   vpc_security_group_ids = ["sg-0d3f1e99f596b7655"]
   subnet_id              = "subnet-0aea8366156988c03"
+  associate_public_ip_address = true 
+ 
   tags = {
     Name = var.vm_name
   }
