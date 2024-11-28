@@ -9,10 +9,13 @@ terraform {
 
 # AWS Provider
 provider "aws" {
-  access_key = var.access_key
-  secret_key = var.secret_key
-  region     = var.region
+  region = var.region
+
+  assume_role {
+    role_arn = var.aws_run_role_arn
+  }
 }
+
 
 # EC2 Instance
 resource "aws_instance" "ssh-target" {
