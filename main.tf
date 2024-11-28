@@ -23,7 +23,7 @@ resource "aws_instance" "ssh-target" {
   instance_type          = "t2.micro"
   key_name               = "boundary-vault-keypair"
   vpc_security_group_ids = ["sg-0c8ca3500beb489f5"]
-  subnet_id              = "subnet-0e3c5d157a7c441e9"
+  subnet_id              = "subnet-01256c4ce22cb50ee"
   associate_public_ip_address = true 
  
   tags = {
