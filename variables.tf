@@ -1,14 +1,11 @@
 
 variable "vm_name" {
 }
-variable "access_key" {
-      default = ""
-}
 
-variable "secret_key" {
-      default = ""
+variable "aws_run_role_arn" {
+  description = "AWS Role ARN to assume for Terraform runs"
+  type        = string
 }
-
 
 
 variable "url" {
