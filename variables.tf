@@ -3,8 +3,7 @@ variable "vm_name" {
 }
 
 variable "aws_run_role_arn" {
-  description = "AWS Role ARN to assume for Terraform runs"
-  type        = string
+    default   = ""
 }
 
 
